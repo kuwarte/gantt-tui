@@ -37,8 +37,21 @@ Select Task -> Move / Resize -> Track Progress -> Switch Months -> View Timeline
 git clone https://github.com/kuwarte/gantt-tui.git
 cd gantt-tui
 
-# Run
-java -jar target/GanttTUI-1.0-SNAPSHOT.jar
+# Install as a CLI tool
+chmod +x install.sh
+sudo ./install.sh
+```
+
+### Run
+
+```bash
+gtt
+```
+
+### Uninstall
+
+```bash
+sudo bash ./uninstall.sh
 ```
 
 ---
