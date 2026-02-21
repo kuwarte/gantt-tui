@@ -100,15 +100,15 @@ uninstall.bat
 ┌────────────┬──────────────────────────────────────┬───────────────┐
 │ TASK       │ 1────5────10────15────20────25────28 │ February 2026 │
 ├────────────┼──────────────────────────────────────┼───────────────┤
-│ Design UI  │ ██████░░░░────────────────────────── │  2/1-2/6      │
-│ Backend    │ ────████████░░░░──────────────────── │  2/4-2/11     │
-│ Testing    │ ────────────████──────────────────── │  2/9-2/12     │
+│ Design UI  │ ██████░░░░                           │  2/1-2/6      │
+│ Backend    │     ████████░░░░                     │  2/4-2/11     │
+│ Testing    │             ████                     │  2/9-2/12     │
 └────────────┴──────────────────────────────────────┴───────────────┘
  NORMAL  [Gantt Workspace]                      Task 1/5  Feb 2026
 ```
 
 - **Left panel** — Task names
-- **Middle panel** — Scaled timeline; `█` = done, `░` = remaining, `─` = empty
+- **Middle panel** — Scaled timeline; `█` = done, `░` = remaining
 - **Right panel** — Month/year header + per-task date ranges
 
 ---
