@@ -32,14 +32,21 @@ Select Task -> Move / Resize -> Track Progress -> Switch Months -> View Timeline
 
 ### Installation
 
+**Linux**
+
 ```bash
-# Clone the repo
 git clone https://github.com/kuwarte/gantt-tui.git
 cd gantt-tui
-
-# Install as a CLI tool
 chmod +x install.sh
-sudo ./install.sh
+./install.sh
+```
+
+**Windows**
+
+```bat
+git clone https://github.com/kuwarte/gantt-tui.git
+cd gantt-tui
+install.bat
 ```
 
 ### Run
@@ -50,8 +57,16 @@ gtt
 
 ### Uninstall
 
+**Linux**
+
 ```bash
-sudo bash ./uninstall.sh
+./uninstall.sh
+```
+
+**Windows**
+
+```bat
+uninstall.bat
 ```
 
 ---
