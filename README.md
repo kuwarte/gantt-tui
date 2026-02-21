@@ -34,7 +34,7 @@ Select Task -> Move / Resize -> Track Progress -> Switch Months -> View Timeline
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourname/gantt-tui.git
+git clone https://github.com/kuwarte/gantt-tui.git
 cd gantt-tui
 
 # Run
