@@ -1,6 +1,6 @@
 # GanttTUI: TUI-based Gantt Chart
 
-> A keyboard-driven Gantt chart for your terminal. Plan tasks, track progress, and navigate time — without leaving the CLI.
+> A personal, lightweight, keyboard-driven Gantt chart for your terminal — built for solo project tracking without the overhead of collaborative tools.
 
 ---
 
@@ -28,45 +28,35 @@ Select Task -> Move / Resize -> Track Progress -> Switch Months -> View Timeline
 
 ### Prerequisites
 
-- Java 25
+- Java 25+
 
-### Installation
+### Installation (Fastest Way)
 
-**Linux**
+Download the latest `GanttTUI.jar`, `install.sh`, and `uninstall.sh` from the [Releases](https://github.com/kuwarte/gantt-tui/releases) page.
 
 ```bash
-git clone https://github.com/kuwarte/gantt-tui.git
-cd gantt-tui
 chmod +x install.sh
 ./install.sh
 ```
 
-**Windows**
-
-```bat
-git clone https://github.com/kuwarte/gantt-tui.git
-cd gantt-tui
-install.bat
-```
-
-### Run
+Then run:
 
 ```bash
 gtt
 ```
 
-### Uninstall
+### Building from Source
 
-**Linux**
+```bash
+git clone https://github.com/kuwarte/gantt-tui.git
+cd gantt-tui
+mvn clean package
+```
+
+### Uninstall
 
 ```bash
 ./uninstall.sh
-```
-
-**Windows**
-
-```bat
-uninstall.bat
 ```
 
 ---
@@ -118,9 +108,15 @@ uninstall.bat
 - Real calendar dates — tasks store actual `LocalDate` start and end
 - Month filtering — only tasks overlapping the viewed month are shown; tasks spanning months appear clipped in each
 - Scaled bars — timeline always fills the full panel width regardless of month length
-- Accurate ruler — day labels (`1`, `5`, `10`..., last day) right-aligned in their slots, always matching bar positions
+- Accurate ruler — day labels right-aligned in their slots, matching bar positions
 - Auto-detects current month on launch
 - Insert, rename, delete tasks interactively
+
+---
+
+## Contributing
+
+GanttTUI is open for contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
