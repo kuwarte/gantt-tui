@@ -22,8 +22,8 @@ public class GanttController {
 
     private void save() {
         TaskStorage.saveTasks(app.tasks);
-        if (!app.message.contains("[*]")) {
-            app.message += " [*]";
+        if (!app.message.contains("@ Synced")) {
+            app.message += " @ Synced";
         }
     }
 
