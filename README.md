@@ -28,7 +28,7 @@ Select Task -> Move / Resize -> Track Progress -> Switch Months -> View Timeline
 
 ### Prerequisites
 
-- Java 11+
+- Java 25
 
 ### Installation
 
