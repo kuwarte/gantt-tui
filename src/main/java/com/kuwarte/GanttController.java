@@ -20,6 +20,13 @@ public class GanttController {
         this.app = app;
     }
 
+    private void save() {
+        TaskStorage.saveTasks(app.tasks);
+        if (!app.message.contains("[*]")) {
+            app.message += " [*]";
+        }
+    }
+
     public void handleInput(Screen screen) throws IOException {
         KeyStroke key = screen.readInput();
         List<Task> visible = app.visibleTasks();
@@ -30,13 +37,16 @@ public class GanttController {
             moveSelection(1, visible);
         } else if (key.getKeyType() == KeyType.ArrowLeft) {
             moveTaskStart(-1, visible);
+            save();
         } else if (key.getKeyType() == KeyType.ArrowRight) {
             moveTaskStart(1, visible);
+            save();
         } else if (key.getKeyType() == KeyType.Character) {
             char c = key.getCharacter();
             switch (c) {
                 case 'q':
                 case 'Q':
+                    save();
                     app.running = false;
                     break;
                 case 'j':
@@ -47,36 +57,46 @@ public class GanttController {
                     break;
                 case 'h':
                     moveTaskStart(-1, visible);
+                    save();
                     break;
                 case 'l':
                     moveTaskStart(1, visible);
+                    save();
                     break;
                 case '+':
                 case '=':
                     adjustDuration(1, visible);
+                    save();
                     break;
                 case '-':
                     adjustDuration(-1, visible);
+                    save();
                     break;
                 case '>':
                 case '.':
                     adjustProgress(1, visible);
+                    save();
                     break;
                 case '<':
                 case ',':
                     adjustProgress(-1, visible);
+                    save();
                     break;
                 case 'i':
                     insertTask(screen, app.selectedIndex);
+                    save();
                     break;
                 case 'o':
                     insertTask(screen, app.selectedIndex + 1);
+                    save();
                     break;
                 case 'd':
                     deleteTask(visible);
+                    save();
                     break;
                 case 'r':
                     renameTask(screen, visible);
+                    save();
                     break;
                 case '[':
                     app.prevMonth();
