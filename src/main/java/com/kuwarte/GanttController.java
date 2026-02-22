@@ -197,7 +197,7 @@ public class GanttController {
 
             tg.setForegroundColor(TextColor.ANSI.WHITE);
             tg.putString(0, height - 1, String.format("%-" + width + "s", ""));
-            tg.putString(0, height - 1, prompt + input.toString() + "█");
+            tg.putString(0, height - 1, prompt + input.toString() + "_");
             screen.refresh();
 
             KeyStroke key = screen.readInput();
