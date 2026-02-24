@@ -205,7 +205,7 @@ public class GanttController {
      * @throws IOException If terminal communication fails during input.
      */
     private void handleWorkspaceRename(Screen screen) throws IOException {
-        String newName = inputHandler.promptInput(screen, ":set workspace name> ", " BRANDING ");
+        String newName = inputHandler.promptInput(screen, ":set workspace name> ", " CONFIG ");
 
         if (newName != null && !newName.trim().isEmpty()) {
             // Update the workspace name in config and persist
