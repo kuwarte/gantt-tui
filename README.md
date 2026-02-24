@@ -106,11 +106,11 @@ mvn clean package
 
 ## Features
 
-**Real calendar dates** — tasks store actual LocalDate start and end
-**Month filtering** — only tasks overlapping the viewed month are shown; tasks spanning months appear clipped in each
-**Auto-detects current month on launch** — centers the timeline on the system date immediately
-**Insert, rename, delete tasks interactively** — full CRUD support via keyboard-driven prompts
-**Persistent UI preferences** — saves themes, borders, and workspace branding to `config.json`
+- **Real calendar dates** — tasks store actual LocalDate start and end
+- **Month filtering** — only tasks overlapping the viewed month are shown; tasks spanning months appear clipped in each
+- **Auto-detects current month on launch** — centers the timeline on the system date immediately
+- **Insert, rename, delete tasks interactively** — full CRUD support via keyboard-driven prompts
+- **Persistent UI preferences** — saves themes, borders, and workspace branding to `config.json`
 
 ---
 
