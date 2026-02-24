@@ -27,7 +27,7 @@ public class RulerRenderer implements Renderer {
         int colsPerDay = Math.max(1, rulerWidth / daysInMonth);
 
         // --- 2. Initial Background Pass ---
-        tg.setBackgroundColor(GanttView.OD_BG_DARKER);
+        tg.setBackgroundColor(GanttView.BG_DARKER);
         for (int x = rulerOffset; x < rulerOffset + rulerWidth; x++)
             tg.putString(x, 1, " ");
 
@@ -41,7 +41,7 @@ public class RulerRenderer implements Renderer {
             boolean isLabeled = (dayNum == 1 || dayNum % 5 == 0 || dayNum == daysInMonth);
 
             // Draw the base line of the ruler
-            tg.setForegroundColor(GanttView.OD_COMMENT);
+            tg.setForegroundColor(GanttView.COMMENT);
             for (int p = 0; p < colsPerDay && slotCol + p < rulerWidth; p++)
                 tg.putString(rulerOffset + slotCol + p, 1, "─");
 
@@ -57,7 +57,7 @@ public class RulerRenderer implements Renderer {
 
                 // Render the date number (Yellow for high visibility)
                 if (labelCol >= 0 && labelCol + label.length() <= rulerWidth) {
-                    tg.setForegroundColor(GanttView.OD_YELLOW);
+                    tg.setForegroundColor(GanttView.YELLOW);
                     tg.putString(rulerOffset + labelCol, 1, label);
                 }
             }
@@ -67,7 +67,7 @@ public class RulerRenderer implements Renderer {
         // Draws the vertical dividers to maintain the "grid" look even in the ruler
         // area.
         String v = app.thickBorder ? "║" : "│";
-        tg.setForegroundColor(GanttView.OD_COMMENT);
+        tg.setForegroundColor(GanttView.COMMENT);
         tg.putString(0, 1, v);
         tg.putString(layout.mid1, 1, v);
         tg.putString(layout.mid2, 1, v);

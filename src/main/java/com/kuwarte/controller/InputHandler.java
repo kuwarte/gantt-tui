@@ -40,13 +40,13 @@ public class InputHandler {
         // Blocking Modal Loop
         while (true) {
             // 1. Draw the "Mode Indicator" on the Status Bar row (height - 2)
-            tg.setBackgroundColor(GanttView.OD_BG_DARKER);
-            tg.setForegroundColor(GanttView.OD_CYAN);
+            tg.setBackgroundColor(GanttView.CYAN);
+            tg.setForegroundColor(GanttView.BG_DARKER);
             tg.putString(0, height - 2, modeOverlay);
 
             // 2. Draw the "Prompt and Input Field" on the Message Bar row (height - 1)
-            tg.setBackgroundColor(GanttView.OD_BG_DARK);
-            tg.setForegroundColor(GanttView.OD_COMMENT);
+            tg.setBackgroundColor(GanttView.BG_DARK);
+            tg.setForegroundColor(GanttView.COMMENT);
 
             // Clear the row first with a full-width empty string
             tg.putString(0, height - 1, String.format("%-" + width + "s", ""));

@@ -22,25 +22,27 @@ public class StatusBarRenderer implements Renderer {
         List<Task> visible = app.visibleTasks();
 
         // --- 1. Background Setup ---
-        tg.setBackgroundColor(GanttView.OD_BG_DARKER);
+        tg.setBackgroundColor(GanttView.BG_DARKER);
         // Clear the entire line to ensure the background color is uniform
         tg.putString(0, statusY, String.format("%" + layout.width + "s", ""));
 
         // --- 2. Left Segment: Mode Indicator ---
         // Uses high-contrast Green background (classic Vim style)
-        tg.setForegroundColor(GanttView.OD_BG_DARKER);
-        tg.setBackgroundColor(GanttView.OD_GREEN);
+        tg.setForegroundColor(GanttView.BG_DARKER);
+        tg.setBackgroundColor(GanttView.GREEN);
         String modeStr = " NORMAL ";
         tg.putString(0, statusY, modeStr);
 
         // --- 3. Middle Segment: Workspace Branding ---
-        tg.setBackgroundColor(GanttView.OD_BG_DARKER);
-        tg.setForegroundColor(GanttView.OD_FG);
-        tg.putString(modeStr.length(), statusY, " [Gantt Workspace] ");
+        tg.setBackgroundColor(GanttView.BG_DARKER);
+        tg.setForegroundColor(GanttView.FG);
+
+        String brand = " [" + app.config.workspaceName + "] ";
+        tg.putString(modeStr.length(), statusY, brand);
 
         // --- 4. Right Segment: Status & Date ---
         // Displays "Task X/Y" and "MMM YYYY" (e.g., Task 1/5 Feb 2026)
-        tg.setForegroundColor(GanttView.OD_YELLOW);
+        tg.setForegroundColor(GanttView.YELLOW);
         String progressStr = String.format(" Task %d/%d  %s %d ",
                 visible.isEmpty() ? 0 : app.selectedIndex + 1,
                 visible.size(),

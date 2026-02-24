@@ -4,8 +4,9 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.kuwarte.controller.GanttController;
 import com.kuwarte.model.Task;
-import com.kuwarte.model.TaskStorage;
+import com.kuwarte.model.PersistenceManager;
 import com.kuwarte.view.GanttView;
+import com.kuwarte.model.AppConfig;
 
 import java.time.LocalDate;
 import java.time.YearMonth;
@@ -58,6 +59,10 @@ public class GanttTUI {
             "July", "August", "September", "October", "November", "December"
     };
 
+    public GanttView view;
+    public GanttController controller;
+    public AppConfig config;
+
     /**
      * Entry point of the application.
      */
@@ -80,13 +85,17 @@ public class GanttTUI {
      * 5. Shutdown: Save tasks and stop terminal screen.
      */
     public void run() throws Exception {
+        // Load the config
+        this.config = PersistenceManager.loadConfig();
+        this.thickBorder = config.thickBorder;
+
         // Initialize temporal state
         LocalDate today = LocalDate.now();
         currentMonth = today.getMonthValue();
         currentYear = today.getYear();
 
         // Data Persistence Layer
-        List<Task> loadedTasks = TaskStorage.loadTasks();
+        List<Task> loadedTasks = PersistenceManager.loadTasks();
         if (loadedTasks.isEmpty()) {
             // Seed data for new users
             LocalDate base = today.withDayOfMonth(1);
@@ -102,13 +111,14 @@ public class GanttTUI {
         screen.setCursorPosition(null); // Hide terminal cursor for better TUI immersion
 
         // Modular MVC Components
-        GanttView renderer = new GanttView(this);
-        GanttController controller = new GanttController(this);
+        this.view = new GanttView(this);
+        this.view.setTheme(config.theme);
+        this.controller = new GanttController(this);
 
         try {
             while (running) {
                 // VIEW: Delegate drawing to the renderer module
-                renderer.drawUI(screen);
+                view.drawUI(screen);
                 screen.refresh();
 
                 // CONTROLLER: Block for input and delegate logic
@@ -116,7 +126,7 @@ public class GanttTUI {
             }
         } finally {
             // Ensure data is saved even if an error occurs
-            TaskStorage.saveTasks(tasks);
+            PersistenceManager.saveTasks(tasks);
             screen.stopScreen();
         }
     }

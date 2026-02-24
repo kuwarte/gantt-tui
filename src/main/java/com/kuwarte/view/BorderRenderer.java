@@ -48,8 +48,8 @@ public class BorderRenderer implements Renderer {
         }
 
         // --- 2. Background and Line Colors ---
-        tg.setBackgroundColor(GanttView.OD_BG_DARKER);
-        tg.setForegroundColor(GanttView.OD_COMMENT);
+        tg.setBackgroundColor(GanttView.BG_DARKER);
+        tg.setForegroundColor(GanttView.COMMENT);
 
         // --- 3. Horizontal Line Rendering ---
         // Top border (row 0)
@@ -92,11 +92,11 @@ public class BorderRenderer implements Renderer {
 
         // --- 6. Header Text Content ---
         // Fill row 1 with a solid background to ensure no 'gaps' in the color.
-        tg.setBackgroundColor(GanttView.OD_BG_DARKER);
+        tg.setBackgroundColor(GanttView.BG_DARKER);
         tg.fillRectangle(new com.googlecode.lanterna.TerminalPosition(1, 1),
                 new com.googlecode.lanterna.TerminalSize(layout.width - 2, 1), ' ');
 
-        tg.setForegroundColor(GanttView.OD_YELLOW);
+        tg.setForegroundColor(GanttView.YELLOW);
         tg.putString(2, 1, "TASK");
 
         String monthLabel = GanttTUI.MONTH_NAMES[app.currentMonth - 1].toUpperCase() + " " + app.currentYear;

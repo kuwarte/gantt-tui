@@ -47,12 +47,12 @@ public class TaskListRenderer implements Renderer {
 
             // --- 3. Render Task Name (Left Panel) ---
             if (isSelected) {
-                tg.setBackgroundColor(GanttView.OD_BG); // Highlight selection
-                tg.setForegroundColor(GanttView.OD_FG);
+                tg.setBackgroundColor(GanttView.BG); // Highlight selection
+                tg.setForegroundColor(GanttView.FG);
                 tg.putString(1, y, String.format(" %-" + (layout.mid1 - 2) + "s", t.name));
             } else {
-                tg.setBackgroundColor(GanttView.OD_BG_DARKEST);
-                tg.setForegroundColor(GanttView.OD_FG);
+                tg.setBackgroundColor(GanttView.BG_DARKEST);
+                tg.setForegroundColor(GanttView.FG);
                 // Truncate name if it exceeds the column width
                 String truncated = t.name.length() > layout.mid1 - 3 ? t.name.substring(0, layout.mid1 - 3) : t.name;
                 tg.putString(2, y, truncated);
@@ -71,16 +71,16 @@ public class TaskListRenderer implements Renderer {
             int pixBarEnd = (dayBarEnd + 1) * colsPerDay - 1;
             int pixProgressEnd = dayProgressEnd * colsPerDay;
 
-            tg.setBackgroundColor(GanttView.OD_BG_DARKEST);
+            tg.setBackgroundColor(GanttView.BG_DARKEST);
             for (int col = 0; col < rulerWidth; col++) {
                 if (col >= pixBarStart && col <= pixBarEnd) {
                     if (col < pixProgressEnd) {
                         // Completed Portion: High-density block
-                        tg.setForegroundColor(isSelected ? GanttView.OD_CYAN : GanttView.OD_GREEN);
+                        tg.setForegroundColor(isSelected ? GanttView.CYAN : GanttView.GREEN);
                         tg.putString(rulerOffset + col, y, "▓");
                     } else {
                         // Remaining Portion: Medium-density shade
-                        tg.setForegroundColor(isSelected ? GanttView.OD_BLUE : GanttView.OD_COMMENT);
+                        tg.setForegroundColor(isSelected ? GanttView.BLUE : GanttView.COMMENT);
                         tg.putString(rulerOffset + col, y, "▒");
                     }
                 } else {
@@ -90,8 +90,8 @@ public class TaskListRenderer implements Renderer {
 
             // --- 5. Render Dates (Right Panel) ---
             int rightPanelWidth = layout.width - 1 - (layout.mid2 + 1);
-            tg.setBackgroundColor(isSelected ? GanttView.OD_BG : GanttView.OD_BG_DARKEST);
-            tg.setForegroundColor(isSelected ? GanttView.OD_FG : GanttView.OD_COMMENT);
+            tg.setBackgroundColor(isSelected ? GanttView.BG : GanttView.BG_DARKEST);
+            tg.setForegroundColor(isSelected ? GanttView.FG : GanttView.COMMENT);
 
             if (isSelected) // Fill selection background for the full row
                 tg.putString(layout.mid2 + 1, y, String.format("%-" + rightPanelWidth + "s", ""));
@@ -106,8 +106,8 @@ public class TaskListRenderer implements Renderer {
 
         // --- 6. Empty State ---
         if (visible.isEmpty()) {
-            tg.setBackgroundColor(GanttView.OD_BG_DARKEST);
-            tg.setForegroundColor(GanttView.OD_COMMENT);
+            tg.setBackgroundColor(GanttView.BG_DARKEST);
+            tg.setForegroundColor(GanttView.COMMENT);
             tg.putString(2, startY, "No tasks in " + GanttTUI.MONTH_NAMES[app.currentMonth - 1] + ".");
         }
     }

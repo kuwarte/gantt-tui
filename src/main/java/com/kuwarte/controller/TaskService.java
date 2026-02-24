@@ -2,7 +2,7 @@ package com.kuwarte.controller;
 
 import com.kuwarte.GanttTUI;
 import com.kuwarte.model.Task;
-import com.kuwarte.model.TaskStorage;
+import com.kuwarte.model.PersistenceManager;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -28,7 +28,7 @@ public class TaskService {
      * Appends a "@ Synced" indicator to the UI message to confirm success.
      */
     public void save() {
-        TaskStorage.saveTasks(app.tasks);
+        PersistenceManager.saveTasks(app.tasks);
         if (!app.message.contains("@ Synced")) {
             app.message += " @ Synced";
         }

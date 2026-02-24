@@ -22,8 +22,8 @@ public class MessageBarRenderer implements Renderer {
     public void render(TextGraphics tg, Layout layout, GanttTUI app) {
         // Set the distinct 'dark' background to separate the message bar from the main
         // chart
-        tg.setBackgroundColor(GanttView.OD_BG_DARK);
-        tg.setForegroundColor(GanttView.OD_COMMENT);
+        tg.setBackgroundColor(GanttView.BG_DARK);
+        tg.setForegroundColor(GanttView.COMMENT);
 
         // 1. CLEARING THE LINE
         // We use String.format to create a string of spaces equal to the terminal
