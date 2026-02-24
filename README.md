@@ -63,24 +63,25 @@ mvn clean package
 
 ## Keybindings
 
-| Key       | Action                      |
-| --------- | --------------------------- |
-| `j` / `↓` | Select next task            |
-| `k` / `↑` | Select previous task        |
-| `h` / `←` | Shift task start earlier    |
-| `l` / `→` | Shift task start later      |
-| `+` / `=` | Extend task duration        |
-| `-`       | Shrink task duration        |
-| `>` / `.` | Advance progress by 1 day   |
-| `<` / `,` | Rewind progress by 1 day    |
-| `i`       | Insert task above selection |
-| `o`       | Insert task below selection |
-| `r`       | Rename selected task        |
-| `d`       | Delete selected task        |
-| `[`       | Go to previous month        |
-| `]`       | Go to next month            |
-| `?`       | Show help                   |
-| `q`       | Quit                        |
+| Category       | Key(s)        | Action                                |
+| :------------- | :------------ | :------------------------------------ |
+| **Navigation** | `<j>` / `↓`   | Select next task                      |
+|                | `<k>` / `↑`   | Select previous task                  |
+|                | `<[` / `]>`   | Change month view                     |
+| **Time Mgmt**  | `<h>` / `←`   | Shift task start earlier              |
+|                | `<l>` / `→`   | Shift task start later                |
+|                | `<+>` / `<=>` | Increase duration (days)              |
+|                | `<->`         | Decrease duration (days)              |
+| **Progress**   | `<.>` / `<,>` | Advance / Rewind completion           |
+| **Management** | `<i>`         | Insert task **Above** selection       |
+|                | `<o>`         | Insert task **Below** selection       |
+|                | `<r>`         | Rename selected task                  |
+|                | `<d>`         | Delete selected task                  |
+| **Settings**   | `<t>`         | Cycle Themes (OneDark, Dracula, etc.) |
+|                | `<b>`         | Toggle Border weight (Thick/Thin)     |
+|                | `<W>`         | Change Workspace Name (Branding)      |
+| **System**     | `<?>`         | Cycle Help messages                   |
+|                | `<q>`         | **Save all changes and Exit**         |
 
 ---
 
@@ -105,12 +106,11 @@ mvn clean package
 
 ## Features
 
-- Real calendar dates — tasks store actual `LocalDate` start and end
-- Month filtering — only tasks overlapping the viewed month are shown; tasks spanning months appear clipped in each
-- Scaled bars — timeline always fills the full panel width regardless of month length
-- Accurate ruler — day labels right-aligned in their slots, matching bar positions
-- Auto-detects current month on launch
-- Insert, rename, delete tasks interactively
+**Real calendar dates** — tasks store actual LocalDate start and end
+**Month filtering** — only tasks overlapping the viewed month are shown; tasks spanning months appear clipped in each
+**Auto-detects current month on launch** — centers the timeline on the system date immediately
+**Insert, rename, delete tasks interactively** — full CRUD support via keyboard-driven prompts
+**Persistent UI preferences** — saves themes, borders, and workspace branding to `config.json`
 
 ---
 
