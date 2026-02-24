@@ -28,7 +28,8 @@ Select Task -> Move / Resize -> Track Progress -> Switch Months -> View Timeline
 
 ### Prerequisites
 
-- Java 25+
+- **Java 25+**
+- **Maven 3.8+**
 
 ### Installation (Fastest Way)
 
@@ -51,6 +52,14 @@ gtt
 git clone https://github.com/kuwarte/gantt-tui.git
 cd gantt-tui
 mvn clean package
+```
+
+### Development Mode
+
+If you are modifying the code and want to test changes immediately without manual packaging:
+
+```bash
+mvn clean compile exec:java
 ```
 
 ### Uninstall
